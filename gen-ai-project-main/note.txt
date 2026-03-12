@@ -1,0 +1,4 @@
+#to set env to run:-source .venv/bin/activate
+#to run the file:-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+user id:- admin
+password:-Admin@202 
