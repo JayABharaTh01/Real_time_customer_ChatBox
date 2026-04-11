@@ -8,6 +8,53 @@ This project provides a local, production-style baseline for a Retrieval-Augment
 - RAG retrieval from indexed local documents (`document_chunks` with OpenAI embeddings)
 - OpenAI response generation
 
+## Repository structure
+
+```
+gen-ai-project-main/
+├── README.md
+├── RUN_APP.md
+├── WORKFLOW.md
+├── requirements.txt
+├── note.txt
+├── project.md
+├── streamlit_dashboard.py
+├── streamlit_rag_eval_dashboard.py
+├── app/
+│   ├── chroma_store.py
+│   ├── config.py
+│   ├── db.py
+│   ├── main.py
+│   ├── models.py
+│   ├── rag.py
+│   └── security.py
+├── chroma_data/
+│   ├── chroma.sqlite3
+│   ├── 058323db-1471-48bb-a523-616892016a15/
+│   ├── 86a5a161-5db3-4437-b73d-21fcca84af45/
+│   ├── c3494ee5-4544-4bed-bd68-5cd96dca92f0/
+│   ├── c49df7ea-cb66-4f67-a993-ff3d13c865bc/
+│   └── ce963533-1326-4aae-8f80-f935dc3042a7/
+├── data/
+├── eval/
+│   ├── ground_truth_rag.json
+│   └── rag_eval_report.json
+├── scripts/
+│   ├── evaluate_rag.py
+│   ├── ingest_data.py
+│   ├── seed_metrics.py
+│   └── seed_user.py
+├── static/
+│   ├── chat-react.js
+│   ├── chat.js
+│   ├── login-react.js
+│   ├── login.js
+│   └── styles.css
+└── templates/
+    ├── chat.html
+    └── login.html
+```
+
 ## 1) Prerequisites
 
 - Python 3.11+
