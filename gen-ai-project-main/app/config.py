@@ -12,7 +12,7 @@ class Settings(BaseSettings):
         "mssql+pyodbc://@localhost/RAGChatbotDB?driver=ODBC+Driver+18+for+SQL+Server"
     )
 
-    openai_api_key: str = ""
+    openai_api_key: str = "OPENAI_API_KEY"
     openai_chat_model: str = "gpt-4.1-mini"
     openai_embedding_model: str = "text-embedding-3-small"
 
