@@ -1,0 +1,60 @@
+# Production-Grade Multi-Agent Customer Support Chatbot
+
+## Overview
+This repository implements a full end-to-end customer support chatbot system using LangChain, LangGraph, and RAG with a dummy JSON knowledge base. It demonstrates:
+
+- 10 specialized backend agents (router + 9 handling agents)
+- RAG pipeline with FAISS vector store
+- MPC design with context/reasoning/action separation
+- LangGraph-style orchestration with failover
+- Short-term conversational memory
+- FastAPI endpoints for production API
+
+## Structure
+- `app/agents`: agent implementations
+- `app/rag`: retrieval augmented generation pipeline
+- `app/graph`: orchestrator and workflow
+- `app/api`: FastAPI server
+- `app/utils`: logging and utilities
+- `data`: sample JSON knowledge base
+- `config`: environment config
+- `main.py`: entrypoint
+
+## Setup
+1. Create virtualenv and install dependencies
+```bash
+cd customer_support_agent
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+2. Set OpenAI key in `config/.env`
+```bash
+OPENAI_API_KEY=your-openai-key
+```
+
+3. Start server
+```bash
+python main.py
+```
+
+## Endpoints
+- `GET /health` - health check
+- `POST /chat` - request body `{ "query": "..." }`
+- `POST /match` - request body `{ "query": "...", "top_k": 3 }` to retrieve matching knowledge artifacts
+
+## Example query
+```bash
+curl -X POST "http://127.0.0.1:8000/chat" -H "Content-Type: application/json" -d '{"query":"What is your return policy?"}'
+```
+
+## Extension
+- Add additional agents in `app/agents/specialized_agents.py`
+- Append knowledge in `data/faqs.json|orders.json|policies.json`
+- Replace simple router with advanced LLM classification
+- Add long-term memory by persisting `orchestrator.history`
+
+## Notes
+- Basic error handling and logging included
+- No pseudo-code - complete Python implementation
